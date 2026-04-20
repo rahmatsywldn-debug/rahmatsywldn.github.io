@@ -914,6 +914,234 @@
       .highlight-bar { grid-template-columns: 1fr; }
       .transcript-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── EXPERIENCE TIMELINE ── */
+    #experience {
+      padding: 8rem 4rem;
+      background: var(--cream);
+    }
+
+    .experience-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 5rem;
+    }
+
+    .experience-header p {
+      max-width: 300px;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* Legend */
+    .tl-legend {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .tl-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tl-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-ld   { background: var(--accent); }
+    .dot-edu  { background: var(--accent2); }
+    .dot-org  { background: var(--gold); }
+    .dot-tech { background: #5b6abf; }
+
+    /* Timeline track */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--gold), var(--accent2));
+      transform: translateX(-50%);
+    }
+
+    /* Each entry */
+    .tl-entry {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    /* Dot in the middle column */
+    .tl-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tl-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid var(--cream);
+      flex-shrink: 0;
+      margin-top: 1.4rem;
+      box-shadow: 0 0 0 2px currentColor;
+    }
+
+    .tl-dot.ld   { color: var(--accent);  background: var(--accent); }
+    .tl-dot.edu  { color: var(--accent2); background: var(--accent2); }
+    .tl-dot.org  { color: var(--gold);    background: var(--gold); }
+    .tl-dot.tech { color: #5b6abf;        background: #5b6abf; }
+
+    /* Cards */
+    .tl-card {
+      padding: 1.6rem 2rem;
+      background: var(--paper);
+      border-top: 3px solid transparent;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .tl-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(15,15,15,0.08);
+    }
+
+    .tl-card.ld   { border-top-color: var(--accent); }
+    .tl-card.edu  { border-top-color: var(--accent2); }
+    .tl-card.org  { border-top-color: var(--gold); }
+    .tl-card.tech { border-top-color: #5b6abf; }
+
+    /* Left cards — pushed to right side of left column */
+    .tl-left {
+      grid-column: 1;
+      text-align: right;
+      padding-right: 2.5rem;
+      padding-left: 0;
+    }
+
+    /* Right cards — pushed to left side of right column */
+    .tl-right {
+      grid-column: 3;
+      text-align: left;
+      padding-left: 2.5rem;
+      padding-right: 0;
+    }
+
+    /* Empty placeholder */
+    .tl-empty { grid-column: 1; }
+    .tl-empty-r { grid-column: 3; }
+
+    .tl-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .tl-org {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.8rem;
+    }
+
+    .tl-card.edu .tl-org  { color: var(--accent2); }
+    .tl-card.org .tl-org  { color: var(--gold); }
+    .tl-card.tech .tl-org { color: #5b6abf; }
+
+    .tl-desc {
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: #3a342e;
+    }
+
+    .tl-chips {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      justify-content: flex-end;
+    }
+
+    .tl-right .tl-chips { justify-content: flex-start; }
+
+    .tl-chip {
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      background: var(--cream);
+      color: var(--muted);
+      border: 1px solid rgba(15,15,15,0.1);
+      letter-spacing: 0.03em;
+    }
+
+    /* Mobile: single column */
+    @media (max-width: 900px) {
+      .timeline::before { left: 20px; }
+
+      .tl-entry {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: auto;
+      }
+
+      .tl-dot-col { grid-column: 1; grid-row: 1; }
+      .tl-dot { margin-top: 1.2rem; }
+
+      .tl-left, .tl-right {
+        grid-column: 2;
+        text-align: left;
+        padding-left: 1.5rem;
+        padding-right: 0;
+      }
+
+      .tl-empty, .tl-empty-r { display: none; }
+
+      .tl-chips { justify-content: flex-start; }
+
+      .experience-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -924,6 +1152,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -949,7 +1178,7 @@
         <span class="badge green">LPDP Scholar</span>
         <span class="badge">Monash University</span>
         <span class="badge">AR Patent Holder</span>
-        <span class="badge">WAM 76.69</span>
+        <span class="badge">GPA 3.125</span>
       </div>
       <div class="stat-grid">
         <div class="stat-card">
@@ -1002,7 +1231,7 @@
       </div>
       <div class="about-body reveal">
         <p>
-          I am an <strong>Instructional Designer and Learning Experience Designer</strong> with a Master of Education (Digital Learning) from Monash University — completed with a WAM of 76.69 and four High Distinctions. My work sits at the intersection of curriculum architecture, human-centred design, and educational technology.
+          I am an <strong>Instructional Designer and Learning Experience Designer</strong> with a Master of Education (Digital Learning) from Monash University — completed with a GPA of 3.125 and four High Distinctions. My work sits at the intersection of curriculum architecture, human-centred design, and educational technology.
         </p>
         <p>
           My experience spans the full design cycle: from on-site needs analysis in remote island schools with no electricity to designing AR-based learning modules that are now <strong>still in active use post-project</strong>. I've built learning tools from scratch, facilitated teacher training, led curriculum delivery across multiple schools, and co-designed with communities using Stanford D.school and Double Diamond methodologies.
@@ -1206,6 +1435,204 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="experience-inner">
+      <div class="experience-header reveal">
+        <div>
+          <div class="section-label">Career Journey</div>
+          <h2 class="section-title">Experience</h2>
+        </div>
+        <p>A chronological view of roles across instructional design, teaching, community, and technology.</p>
+      </div>
+
+      <!-- Legend -->
+      <div class="tl-legend reveal">
+        <div class="tl-legend-item"><span class="tl-legend-dot dot-ld"></span>Learning & Instructional Design</div>
+        <div class="tl-legend-item"><span class="tl-legend-dot dot-edu"></span>Teaching & Education</div>
+        <div class="tl-legend-item"><span class="tl-legend-dot dot-org"></span>Organisation & Leadership</div>
+        <div class="tl-legend-item"><span class="tl-legend-dot dot-tech"></span>Technology</div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 2025 — Campus Ambassador -->
+        <div class="tl-entry reveal">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot edu"></div></div>
+          <div class="tl-card edu tl-right">
+            <div class="tl-period">Jun 2025 – Dec 2025</div>
+            <div class="tl-role">Campus Ambassador</div>
+            <div class="tl-org">Monash University</div>
+            <div class="tl-desc">Supported 10+ high-volume university events managing registration and orientation for hundreds of international visitors. Resolved complex inquiries through culturally responsive communication in fast-paced, multilingual environments.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Event Management</span>
+              <span class="tl-chip">Multilingual Communication</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2025 — Community Learning App -->
+        <div class="tl-entry reveal">
+          <div class="tl-card ld tl-left">
+            <div class="tl-period">2025</div>
+            <div class="tl-role">Learning Designer — Community Offline App</div>
+            <div class="tl-org">Monash University · Shaping Digital Futures</div>
+            <div class="tl-desc">Designed a community-based offline learning companion app addressing literacy and numeracy gaps in rural Indonesia. Applied a hybrid Stanford D.school + Double Diamond model. Co-designed with children, parents, teachers, NGOs, and community leaders. Achieved High Distinction (83/100).</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Stanford D.school</span>
+              <span class="tl-chip">Double Diamond</span>
+              <span class="tl-chip">Offline-First</span>
+              <span class="tl-chip">HD · 83</span>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot ld"></div></div>
+          <div class="tl-empty-r"></div>
+        </div>
+
+        <!-- 2022–2023 — Babar Kalesang -->
+        <div class="tl-entry reveal">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot ld"></div></div>
+          <div class="tl-card ld tl-right">
+            <div class="tl-period">Jun 2022 – Nov 2023</div>
+            <div class="tl-role">Lead Instructional Designer — Babar Kalesang</div>
+            <div class="tl-org">Desamind Indonesia × Pertamina & PLN</div>
+            <div class="tl-desc">Led end-to-end instructional design across 2 field visits to Pulau-Pulau Babar, Maluku Barat Daya. Designed fully offline AR modules reaching 300–500 students in zero-internet island schools. Modules remain in active use post-project.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">ADDIE</span>
+              <span class="tl-chip">AR Development</span>
+              <span class="tl-chip">Needs Analysis</span>
+              <span class="tl-chip">Teacher Training</span>
+              <span class="tl-chip">300–500 Students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2022–2023 — Web Content Writer -->
+        <div class="tl-entry reveal">
+          <div class="tl-card org tl-left">
+            <div class="tl-period">Oct 2022 – Aug 2023</div>
+            <div class="tl-role">Web Content Writer</div>
+            <div class="tl-org">Universitas Muhammadiyah Surakarta</div>
+            <div class="tl-desc">Developed and maintained digital academic content for ums.ac.id ensuring clarity and accessibility for university-wide audiences.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Content Design</span>
+              <span class="tl-chip">Digital Communication</span>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot org"></div></div>
+          <div class="tl-empty-r"></div>
+        </div>
+
+        <!-- 2022 — CT Curriculum -->
+        <div class="tl-entry reveal">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot ld"></div></div>
+          <div class="tl-card ld tl-right">
+            <div class="tl-period">Feb 2022 – Jun 2022</div>
+            <div class="tl-role">Curriculum Designer & Tutor — Computational Thinking</div>
+            <div class="tl-org">UMS × Bebras Indonesia</div>
+            <div class="tl-desc">Designed and delivered a Computational Thinking curriculum across 5–10 schools in Solo Raya through weekly visits. Covered decomposition, pattern recognition, abstraction, and algorithm design — aligned to Bebras Indonesia's national framework.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Curriculum Design</span>
+              <span class="tl-chip">Inquiry-Based Learning</span>
+              <span class="tl-chip">5–10 Schools</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2021 — Ministry of Education -->
+        <div class="tl-entry reveal">
+          <div class="tl-card edu tl-left">
+            <div class="tl-period">Aug 2021 – Dec 2021</div>
+            <div class="tl-role">Team Lead & ICT Teacher</div>
+            <div class="tl-org">Kemendikbudristek Indonesia</div>
+            <div class="tl-desc">Team Lead of Teacher Assistants and PIC for Grade 1 at SD Negeri 1 Sambirembe, Sragen. Taught ICT to Grades 4–6, designing differentiated lesson plans for learners across varied socio-economic and literacy backgrounds.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Team Leadership</span>
+              <span class="tl-chip">Differentiated Instruction</span>
+              <span class="tl-chip">Curriculum Adaptation</span>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot edu"></div></div>
+          <div class="tl-empty-r"></div>
+        </div>
+
+        <!-- 2021 — Bangkit -->
+        <div class="tl-entry reveal">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot tech"></div></div>
+          <div class="tl-card tech tl-right">
+            <div class="tl-period">Feb 2021 – Jul 2021</div>
+            <div class="tl-role">Cloud Computing — Bangkit Capstone</div>
+            <div class="tl-org">Bangkit Academy · Google, Goto & Traveloka</div>
+            <div class="tl-desc">Completed Cloud Computing specialisation in Google's premier tech education programme in Indonesia. Built and deployed cloud infrastructure for SixPackTeamApp — an emergency response application — as the programme capstone using Google Cloud Platform.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">GCP</span>
+              <span class="tl-chip">Cloud Infrastructure</span>
+              <span class="tl-chip">Capstone Project</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2020–2024 — Desamind Director -->
+        <div class="tl-entry reveal">
+          <div class="tl-card org tl-left">
+            <div class="tl-period">Mar 2020 – Dec 2024</div>
+            <div class="tl-role">Director of Secretariat & Finance</div>
+            <div class="tl-org">Desamind Indonesia Foundation</div>
+            <div class="tl-desc">Led operations across 6 divisions and 5+ annual programmes including scholarship, community training, and leadership initiatives. Managed cumulative budget exceeding IDR 600 million. Directed digital transformation to Google Workspace and developed organisational SOPs.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Operations Leadership</span>
+              <span class="tl-chip">Budget Management</span>
+              <span class="tl-chip">Digital Transformation</span>
+              <span class="tl-chip">IDR 600M+</span>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot org"></div></div>
+          <div class="tl-empty-r"></div>
+        </div>
+
+        <!-- 2020–2021 — AR Research -->
+        <div class="tl-entry reveal">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot ld"></div></div>
+          <div class="tl-card ld tl-right">
+            <div class="tl-period">Mar 2020 – Dec 2021</div>
+            <div class="tl-role">Research Assistant & Instructional Media Developer</div>
+            <div class="tl-org">Universitas Muhammadiyah Surakarta</div>
+            <div class="tl-desc">Developed AR-Manner 1.0 — a patented Augmented Reality application introducing communication ethics to ~50 students. Published in a peer-reviewed journal and registered as intellectual property. Authored technical guidebooks supporting 20+ students per unit.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">AR Development</span>
+              <span class="tl-chip">Research Design</span>
+              <span class="tl-chip">Registered Patent</span>
+              <span class="tl-chip">Peer Review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2019–2021 — English Tutor -->
+        <div class="tl-entry reveal">
+          <div class="tl-card edu tl-left">
+            <div class="tl-period">Sep 2019 – Aug 2021</div>
+            <div class="tl-role">English Tutor</div>
+            <div class="tl-org">Universitas Muhammadiyah Surakarta</div>
+            <div class="tl-desc">Designed scaffolded lesson plans integrating digital tools to develop professional English fluency for new university students.</div>
+            <div class="tl-chips">
+              <span class="tl-chip">Lesson Design</span>
+              <span class="tl-chip">Scaffolded Learning</span>
+              <span class="tl-chip">Digital Tools</span>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot edu"></div></div>
+          <div class="tl-empty-r"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div style="max-width:1100px; margin:0 auto;">
@@ -1219,7 +1646,7 @@
           <span class="edu-flag">LPDP Scholar</span>
           <div class="edu-degree">Master of Education<br>(Digital Learning)</div>
           <div class="edu-school">Monash University, Australia</div>
-          <div class="edu-year">Feb 2024 – Dec 2025 · WAM: 76.69</div>
+          <div class="edu-year">Feb 2024 – Dec 2025 · GPA: 3.125</div>
           <ul class="edu-highlights">
             <li>LPDP Full Scholarship — Indonesia's national endowment fund for high-achieving students</li>
             <li>4 × High Distinctions across the programme</li>
