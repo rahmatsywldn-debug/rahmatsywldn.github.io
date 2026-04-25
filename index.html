@@ -97,6 +97,169 @@
 
     .nav-links a:hover { color: var(--accent); }
 
+        /* ── MOBILE MENU ICON ── */
+    .nav-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .nav-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.35s cubic-bezier(0.77,0,0.175,1),
+                  opacity   0.35s cubic-bezier(0.77,0,0.175,1);
+      transform-origin: center;
+    }
+
+    /* Animate to ✕ when open */
+    .nav-menu-btn.is-open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .nav-menu-btn.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-menu-btn.is-open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ── FULL-SCREEN OVERLAY ── */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 4rem 2.5rem;
+
+      /* hidden state */
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-12px);
+      transition: opacity   0.38s cubic-bezier(0.77,0,0.175,1),
+                  transform 0.38s cubic-bezier(0.77,0,0.175,1);
+    }
+
+    .nav-overlay.is-open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .nav-overlay ul {
+      list-style: none;
+      width: 100%;
+    }
+
+    .nav-overlay ul li {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .nav-overlay ul li:first-child {
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-overlay ul li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.15rem 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+
+      /* staggered slide-in (set via JS) */
+      transform: translateY(20px);
+      opacity: 0;
+      transition: color 0.2s,
+                  transform 0.4s cubic-bezier(0.77,0,0.175,1),
+                  opacity   0.4s cubic-bezier(0.77,0,0.175,1);
+    }
+
+    .nav-overlay.is-open ul li a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* stagger delays */
+    .nav-overlay ul li:nth-child(1) a { transition-delay: 0.05s; }
+    .nav-overlay ul li:nth-child(2) a { transition-delay: 0.10s; }
+    .nav-overlay ul li:nth-child(3) a { transition-delay: 0.15s; }
+    .nav-overlay ul li:nth-child(4) a { transition-delay: 0.20s; }
+    .nav-overlay ul li:nth-child(5) a { transition-delay: 0.25s; }
+    .nav-overlay ul li:nth-child(6) a { transition-delay: 0.30s; }
+    .nav-overlay ul li:nth-child(7) a { transition-delay: 0.35s; }
+
+    .nav-overlay ul li a:hover { color: #fff; }
+
+    /* arrow glyph on the right */
+    .nav-overlay ul li a::after {
+      content: '↗';
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity   0.2s,
+                  transform 0.2s;
+    }
+
+    .nav-overlay ul li a:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Resume link gets accent treatment */
+    .nav-overlay .overlay-resume a {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .nav-overlay .overlay-resume a:hover { color: #fff; }
+
+    /* Footer tagline inside overlay */
+    .overlay-footer {
+      margin-top: 3rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── SHOW/HIDE ON MOBILE ── */
+    @media (max-width: 900px) {
+      .nav-menu-btn { display: flex; }
+    }
+
+    /* ── HERO PADDING FIX ON MOBILE ── */
+    @media (max-width: 900px) {
+      .hero-left { padding: 5rem 2rem 3rem !important; min-height: 60vh; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-left { padding: 4.5rem 1.5rem 2.5rem !important; }
+    }
+    
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
