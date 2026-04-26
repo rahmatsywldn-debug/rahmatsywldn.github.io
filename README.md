@@ -76,5 +76,7 @@ This is a **collection of portfolio documents and files** — not a framework or
 If you're looking for someone who designs with rigour, empathy, and evidence — I'd love to hear from you.
 
 📧 rahmatsywldn@gmail.com
+
 🌐 [rahmatsyawaludin.github.io/portfolio](https://rahmatsyawaludin.github.io/portfolio/)
+
 💼 [linkedin.com/in/rahmat-syawaludin](https://linkedin.com/in/rahmat-syawaludin)
